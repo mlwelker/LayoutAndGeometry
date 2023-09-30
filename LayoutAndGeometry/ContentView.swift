@@ -3,9 +3,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Live long and prosper.")
-            .frame(minWidth: 300, minHeight: 300, alignment: .topLeading)
-            .offset(x: 20, y: 20)
+        HStack(alignment: .lastTextBaseline) {
+            Text("Live")
+                .font(.caption)
+            Text("long")
+            Text("and")
+                .font(.title)
+            Text("prosper")
+                .font(.largeTitle)
+        }
     }
 }
 
