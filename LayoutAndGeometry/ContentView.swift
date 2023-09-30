@@ -3,14 +3,34 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        HStack(alignment: .lastTextBaseline) {
-            Text("Live")
-                .font(.caption)
-            Text("long")
-            Text("and")
-                .font(.title)
-            Text("prosper")
-                .font(.largeTitle)
+        VStack {
+            VStack(alignment: .leading) {
+                Text("Hello, world.")
+                Text("This is a longer line.")
+            }
+            .background(.orange)
+            .frame(width: 300, height: 150)
+            .background(.blue)
+            
+            VStack(alignment: .leading) {
+                Text("Hello, world.")
+                    .alignmentGuide(.leading) { dimension in
+                        dimension[.trailing]
+                    }
+                Text("This is a longer line.")
+            }
+            .background(.orange)
+            .frame(width: 300, height: 150)
+            .background(.blue)
+            
+            VStack(alignment: .leading) {
+                Text("Hello, world.")
+                    .offset(x: -25, y: 0)
+                Text("This is a longer line.")
+            }
+            .background(.orange)
+            .frame(width: 300, height: 150)
+            .background(.blue)
         }
     }
 }
