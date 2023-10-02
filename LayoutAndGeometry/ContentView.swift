@@ -3,22 +3,17 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-//        Text("Hello world")
-//            .position(x: 100, y: 100)
-//            .background(.orange)
-        
-//        Text("Hello world")
-//            .background(.orange)
-//            .position(x: 100, y: 100)
-        
-//        Text("Hello world")
-//            .offset(x: 100, y: 100)
-//            .background(.orange)
-        
-        Text("Hello world")
-            .background(.orange)
-            .offset(x: 100, y: 100)
-        
+        VStack {
+            GeometryReader { geo in
+                Text("Hello world")
+                    .frame(width: geo.size.width * 0.9)
+                    .background(.orange)
+            }
+            .background(.gray)
+            
+            Text("More text")
+                .background(.blue)
+        }
     }
 }
 
