@@ -5,17 +5,19 @@ struct ContentView: View {
     let colors: [Color] = [.red, .green, .blue, .orange, .pink, .purple, .yellow]
     
     var body: some View {
-        GeometryReader { fullView in
-            ScrollView {
-                ForEach(0..<50) { index in
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 0) {
+                ForEach(1..<20) { number in
                     GeometryReader { geo in
-                        Text("Row #\(index)")
-                            .font(.title)
-                            .frame(maxWidth: .infinity)
-                            .background(colors[index % 7])
-                            .rotation3DEffect(.degrees(geo.frame(in: .global).minY - fullView.size.height / 2) / 5, axis: (x: 0.0, y: 1.0, z: 0.0))
+                        Text("Number \(number)")
+                            .font(.largeTitle)
+                            .padding()
+                            .background(.orange)
+                            .rotation3DEffect(
+                                .degrees(-geo.frame(in: .global).minX) / 8, axis: (x: 0.0, y: 1.0, z: 0.0))
+                            .frame(width: 200, height: 200)
                     }
-                    .frame(height: 40)
+                    .frame(width: 200, height: 200)
                 }
             }
         }
